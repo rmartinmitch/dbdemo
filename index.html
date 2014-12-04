@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-      body {
-        color: #222;
-        font: 14px Arial;
-      }
-      
-      body a {
-        color: #3D5C9D;
-        text-decoration: none;
-      }
-    </style>
-    <script>
+<head>
+<meta charset="utf-8" />
+<title>ToDo List with Database</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/jquery.mobile.min.css">
+<script src="cordova.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.mobile.min.js"></script>
+
+<style>
+body {
+	color: #222;
+	font: 14px Arial;
+}
+body a {
+	color: #3D5C9D;
+	text-decoration: none;
+}
+</style>
+
+<script>
       var dbdemo = {};
       dbdemo.webdb = {};
       dbdemo.webdb.db = null;
@@ -92,14 +100,32 @@
         dbdemo.webdb.addTodo(todo.value);
         todo.value = "";
       }
-    </script>
-  </head>
-  <body onload="init();">
+</script>
+
+</head>
+
+<body onLoad="init();">
+
+<div data-role="page" data-theme="a">
+
+  <div data-role="header" data-fullscreen="true">
+    <h1>TO DO List</h1>
+  </div>
+
+  <div data-role=content>
     <ul id="todoItems">
     </ul>
-    <form type="post" onsubmit="addTodo(); return false;">
-      <input type="text" id="todo" name="todo" placeholder="What do you need to do?" style="width: 200px;" />
+    <form type="post" onSubmit="addTodo(); return false;">
+      <input type="text" id="todo" name="todo" placeholder="Add a TO DO Task" style="width: 200px;" />
       <input type="submit" value="Add Todo Item"/>
     </form>
-  </body>
-</html>​
+  </div>
+
+  <div data-role="footer" data-position="fixed" data-fullscreen="true">
+    <h4>Rick Mitchell</h4>
+  </div>
+
+</div>
+
+</body>
+</html>
